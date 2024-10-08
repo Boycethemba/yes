@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Curriculum Vitae</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: "Poppins", sans-serif;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html">Back to CV</a>
+    </div>
+
+    <h1>Full Curriculum Vitae</h1>
+    
+    <h2>Personal Information</h2>
+    <p><strong>Name:</strong> <span id="full-name">Not provided</span></p>
+    <p><strong>Email:</strong> <span id="full-email">Not provided</span></p>
+    <p><strong>Phone:</strong> <span id="full-phone">Not provided</span></p>
+    <p><strong>Location:</strong> <span id="full-location">Not provided</span></p>
+
+    <h2>Work Experience</h2>
+    <p><strong>Experience:</strong> <span id="full-workExperience">Not provided</span></p>
+
+    <h2>About Me</h2>
+    <p><strong>About:</strong> <span id="full-aboutMe">Not provided</span></p>
+
+    <h2>Contact Numbers</h2>
+    <p><strong>Contact Number:</strong> <span id="full-contactNumber">Not provided</span></p>
+
+    <h2>Skills</h2>
+    <p><strong>Skills:</strong> <span id="full-skills">Not provided</span></p>
+
+    <script>
+        function loadFullCV() {
+            document.getElementById('full-name').textContent = localStorage.getItem('name') || 'Not provided';
+            document.getElementById('full-email').textContent = localStorage.getItem('email') || 'Not provided';
+            document.getElementById('full-phone').textContent = localStorage.getItem('phone') || 'Not provided';
+            document.getElementById('full-location').textContent = localStorage.getItem('location') || 'Not provided';
+            document.getElementById('full-workExperience').textContent = localStorage.getItem('workExperience') || 'Not provided';
+            document.getElementById('full-aboutMe').textContent = localStorage.getItem('aboutMe') || 'Not provided';
+            document.getElementById('full-contactNumber').textContent = localStorage.getItem('contactNumber') || 'Not provided';
+            document.getElementById('full-skills').textContent = localStorage.getItem('skills') || 'Not provided';
+        }
+
+        window.onload = loadFullCV;
+    </script>
+
+</body>
+</html>

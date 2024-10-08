@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;   
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('css/x.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            color: rgb(12, 11, 11);
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .personal-info, .work-experience, .table-of-contents, .about, .address, .gender,
+        .contact-numbers, .institutions, .subjects, .skills, .awards, .extracurricular, .references {
+            display: none; 
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 80%; 
+        }
+
+        .wrapper {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .wrapper h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .input-box {
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: 2px solid #333;
+            outline: none;
+            border-radius: 40px;
+            padding: 0 15px;
+            color: #333;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        #personal-info h2, #contact-numbers h2, #institutions h2, #subjects h2, #skills h2, 
+        #awards h2, #extracurricular h2, #references h2 {
+            color: #007BFF; /* Blue for consistency */
+        }
+
+        .toc-button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .toc-button:hover {
+            background: #0056b3;
+        }
+
+        .cv-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background: #28A745; /* Green */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .cv-button:hover {
+            background: #218838; /* Darker green */
+        }
+
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            background: #dc3545; /* Red */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: hsl(236, 79%, 27%); /* Darker red */
+        }
+        
+        .edit-button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div>
+            <a href="#" onclick="showPage('home')">Home</a>
+        </div>
+        <div>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <div id="home" class="wrapper">
+        <form action="javascript:void(0);" onsubmit="navigateToTableOfContents()">
+            <h1>Welcome to the homepage!</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+            </div>
+            <button type="submit" class="btn">Sign in</button>
+        </form>
+    </div>
+
+    <div id="table-of-contents" class="table-of-contents">
+        <h2>Table of Contents</h2>
+        <a href="#" class="toc-button" onclick="showPage('personal-info')">Personal Info.</a>
+        <a href="#" class="toc-button" onclick="showPage('work-experience')">Work Experience.</a>
+        <a href="#" class="toc-button" onclick="showPage('about')">About.</a>
+        <a href="#" class="toc-button" onclick="showPage('address')">Address.</a>
+        <a href="#" class="toc-button" onclick="showPage('gender')">Gender.</a>
+        <a href="#" class="toc-button" onclick="showPage('contact-numbers')">Contact Numbers.</a>
+        <a href="#" class="toc-button" onclick="showPage('institutions')">Institutions Studied In.</a>
+        <a href="#" class="toc-button" onclick="showPage('subjects')">Subjects/Modules.</a>
+        <a href="#" class="toc-button" onclick="showPage('skills')">Skills.</a>
+        <a href="#" class="toc-button" onclick="showPage('awards')">Relevant Awards.</a>
+        <a href="#" class="toc-button" onclick="showPage('extracurricular')">Extracurricular Activities.</a>
+        
+    </div>
+
+    <div id="personal-info" class="personal-info">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> <span id="name">Silinda Boyce Themba</span></p>
+        <p><strong>Email:</strong> <span id="email">boycethemba0921@gmail.com</span></p>
+        <p><strong>Phone:</strong> <span id="phone">072 442 3839</span></p>
+        <p><strong>Location:</strong> <span id="location">NAAS, MPUMALANGA.</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editPersonalInfo()">Edit</button>
+    </div>
+
+    <div id="work-experience" class="work-experience">
+        <h2>Work Experience</h2>
+        <p><strong>Years of Experience:</strong> <span id="experience">5 years</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editWorkExperience()">Edit</button>
+    </div>
+
+    <div id="about" class="about">
+        <h2>About</h2>
+        <p><span id="about-text">Results driven software engineer with 5+ years of experience in developing innovative solutions, strong team leader and a problem solver.</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editAbout()">Edit</button>
+    </div>
+
+    <div id="address" class="address">
+        <h2>Address</h2>
+        <p><strong>Address:</strong> <span id="address-text">Gritana 99 St, Naas, Mpumalanga</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editAddress()">Edit</button>
+    </div>
+
+    <div id="gender" class="gender">
+        <h2>Gender</h2>
+        <p><strong>Gender:</strong> <span id="gender-text">Male</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editGender()">Edit</button>
+    </div>
+
+    <div id="contact-numbers" class="contact-numbers">
+        <h2>Contact Numbers</h2>
+        <p><strong>Mobile:</strong> <span id="mobile">(072) 442-3839</span></p>
+        <p><strong>Work:</strong> <span id="work">(060) 907-1148</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editContactNumbers()">Edit</button>
+    </div>
+
+    <div id="institutions" class="institutions">
+        <h2>Institutions Studied In</h2>
+        <p><strong>University:</strong> <span id="university">University of Limpopo</span></p>
+        <p><strong>Degree:</strong> <span id="degree">Bachelors in Mathematical Science</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editInstitutions()">Edit</button>
+    </div>
+
+    <div id="subjects" class="subjects">
+        <h2>Subjects/Modules</h2>
+        <p><strong>Module 1:</strong> <span id="module1">Computing Concepts And Algorithms</span></p>
+        <p><strong>Module 2:</strong> <span id="module2">Data Organization And Artificial Intelligence</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editSubjects()">Edit</button>
+    </div>
+
+    <div id="skills" class="skills">
+        <h2>Skills</h2>
+        <p><span id="skills-text">C++, HTML, CSS, Database, SQL</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editSkills()">Edit</button>
+    </div>
+
+    <div id="awards" class="awards">
+        <h2>Relevant Awards</h2>
+        <p><strong>Award 1:</strong> <span id="award1">Top achiever in HTML code design</span></p>
+        <p><strong>Award 2:</strong> <span id="award2">Position 1 in the school for being the Best coder</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editAwards()">Edit</button>
+    </div>
+
+    <div id="extracurricular" class="extracurricular">
+        <h2>Extracurricular Activities</h2>
+        <p><span id="extracurricular-text">Member of the University Coding Club, Volunteer at Local Charity</span></p>
+        <a href="#" class="back-button" onclick="showPage('table-of-contents')">Back to Table of Contents</a>
+        <button class="edit-button" onclick="editExtracurricular()">Edit</button>
+    </div>
+
+    <script>
+        function showPage(page) {
+            const pages = ['home', 'personal-info', 'work-experience', 'table-of-contents', 'about', 'address', 'gender', 
+                           'contact-numbers', 'institutions', 'subjects', 'skills', 'awards', 'extracurricular'];
+            pages.forEach(p => {
+                document.getElementById(p).style.display = 'none';
+            });
+            document.getElementById(page).style.display = 'block';
+        }
+
+        function navigateToTableOfContents() {
+    showPage('table-of-contents');
+}
+
+
+        function editPersonalInfo() {
+            const name = prompt("Enter your name:", document.getElementById('name').innerText);
+            const email = prompt("Enter your email:", document.getElementById('email').innerText);
+            const phone = prompt("Enter your phone:", document.getElementById('phone').innerText);
+            const location = prompt("Enter your location:", document.getElementById('location').innerText);
+            if (name) document.getElementById('name').innerText = name;
+            if (email) document.getElementById('email').innerText = email;
+            if (phone) document.getElementById('phone').innerText = phone;
+            if (location) document.getElementById('location').innerText = location;
+        }
+
+        function editWorkExperience() {
+            const experience = prompt("Enter your years of experience:", document.getElementById('experience').innerText);
+            if (experience) document.getElementById('experience').innerText = experience;
+        }
+
+        function editAbout() {
+            const aboutText = prompt("Enter about yourself:", document.getElementById('about-text').innerText);
+            if (aboutText) document.getElementById('about-text').innerText = aboutText;
+        }
+
+        function editAddress() {
+            const addressText = prompt("Enter your address:", document.getElementById('address-text').innerText);
+            if (addressText) document.getElementById('address-text').innerText = addressText;
+        }
+
+        function editGender() {
+            const genderText = prompt("Enter your gender:", document.getElementById('gender-text').innerText);
+            if (genderText) document.getElementById('gender-text').innerText = genderText;
+        }
+
+        function editContactNumbers() {
+            const mobile = prompt("Enter your mobile number:", document.getElementById('mobile').innerText);
+            const work = prompt("Enter your work number:", document.getElementById('work').innerText);
+            if (mobile) document.getElementById('mobile').innerText = mobile;
+            if (work) document.getElementById('work').innerText = work;
+        }
+
+        function editInstitutions() {
+            const university = prompt("Enter your university:", document.getElementById('university').innerText);
+            const degree = prompt("Enter your degree:", document.getElementById('degree').innerText);
+            if (university) document.getElementById('university').innerText = university;
+            if (degree) document.getElementById('degree').innerText = degree;
+        }
+
+        function editSubjects() {
+            const module1 = prompt("Enter Module 1:", document.getElementById('module1').innerText);
+            const module2 = prompt("Enter Module 2:", document.getElementById('module2').innerText);
+            if (module1) document.getElementById('module1').innerText = module1;
+            if (module2) document.getElementById('module2').innerText = module2;
+        }
+
+        function editSkills() {
+            const skillsText = prompt("Enter your skills:", document.getElementById('skills-text').innerText);
+            if (skillsText) document.getElementById('skills-text').innerText = skillsText;
+        }
+
+        function editAwards() {
+            const award1 = prompt("Enter Award 1:", document.getElementById('award1').innerText);
+            const award2 = prompt("Enter Award 2:", document.getElementById('award2').innerText);
+            if (award1) document.getElementById('award1').innerText = award1;
+            if (award2) document.getElementById('award2').innerText = award2;
+        }
+
+        function editExtracurricular() {
+            const extracurricularText = prompt("Enter extracurricular activities:", document.getElementById('extracurricular-text').innerText);
+            if (extracurricularText) document.getElementById('extracurricular-text').innerText = extracurricularText;
+        }
+         
+
+        showPage('home');
+    </script>
+
+</body>
+</html>
